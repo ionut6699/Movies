@@ -2,10 +2,8 @@
 #define CINEMA_HPP
 
 #include "Movie.hpp"
-#include <string>
 #include <iostream>
 #include <vector>
-#include <cstring>
 using namespace std;
 
 class Cinema

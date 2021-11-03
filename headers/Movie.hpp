@@ -1,11 +1,9 @@
 #ifndef MOVIE_HPP
 #define MOVIE_HPP
 
-#include <string>
 #include <iostream>
-#include <vector>
-#include <cstring>
 using namespace std;
+
 class Movie {
 private:
 	
@@ -15,9 +13,6 @@ private:
 	string name;
 	
 	
-	
-    
-
 public: 
     //Item 5: Know what functions C++ silently writes and calls.
     Movie(const Movie&); //copy constructor
