@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/movies.dir/src/Movie.cpp.o CMakeFiles/movies.dir/src/Cinema.cpp.o CMakeFiles/movies.dir/src/main.cpp.o -o movies 

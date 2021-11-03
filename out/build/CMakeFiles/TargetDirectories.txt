@@ -1,0 +1,3 @@
+/home/ionut/IEP/movies/Movies/out/build/CMakeFiles/rebuild_cache.dir
+/home/ionut/IEP/movies/Movies/out/build/CMakeFiles/edit_cache.dir
+/home/ionut/IEP/movies/Movies/out/build/CMakeFiles/movies.dir
