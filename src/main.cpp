@@ -1,6 +1,10 @@
 #include "../headers/Cinema.hpp"
 #include "../headers/Movie.hpp"
 
+//Item 4: Make sure that objects are initialized before they’re used.
+//Item 5: Know what functions C++ silently writes and calls.
+//Item 6: Explicitly disallow the use of compiler generated functions you do not want
+
 int main()
 {   
     /*
@@ -24,6 +28,8 @@ int main()
     Cinema b3;
     //b3=b1;
 */
+
+
 int input;
 Cinema c1;
 Movie m1;
@@ -37,6 +43,7 @@ Movie m30("Conjuring","James",104);
 c1.addMovie(m10);
 c1.addMovie(m20);
 c1.addMovie(m30);
+cout<<m1.getNumberOfMovies()<<'\n';
 
 while(1)
     {
