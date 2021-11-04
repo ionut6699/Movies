@@ -20,7 +20,7 @@ public:
 	void getMovieByProducerAndName(string ,string);
 	void getMoviesByProducer(string);
 	void addMovie(Movie);
-	void deleteMovie(string producer, string name);
+	void deleteMovie(string, string);
 	Cinema (Movie);//constructor
     Cinema(vector<Movie>); //constructor 
     Cinema();//default constructor
