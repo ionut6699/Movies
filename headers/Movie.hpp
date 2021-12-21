@@ -16,7 +16,7 @@ private:
 public: 
     //Item 5: Know what functions C++ silently writes and calls.
     Movie(const Movie&); //copy constructor
-	Movie operator=(Movie);
+	Movie &operator=(const Movie &); // assignment operator
 	string getName();
 	string getProducer();
 	int getNumberOfMinutes();

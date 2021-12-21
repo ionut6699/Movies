@@ -7,28 +7,43 @@
 
 int main()
 {   
-    /*
+    
     Movie m1("Avatar","James Cameron",120);
     Movie m2("Fast and Furious 9","Justin Lin",100);
     Movie m3("Conjuring","James Wan",104);
     
+    Movie m11;
+
+    m11=m2;
+    m11.displayInfo();
+
+
+    Movie m12=m1;
+
+    m3=m3;
+
+    Movie m13;
+    m13=m1;
+    m13.displayInfo();
+
     //Item 5: Know what functions C++ silently writes and calls.
     //copy constructor
-    Movie m4=m3;
-    cout<<m4.getName()<<"\n";
-    cout<<m3.getName()<<"\n";
-    cout<<m3.getNumberOfMinutes()<<"\n";
+    //Movie m4=m3;
+   // cout<<m4.getName()<<"\n";
+    //cout<<m3.getName()<<"\n";
+    //cout<<m3.getNumberOfMinutes()<<"\n";
     
     //Item 6: Explicitly disallow the use of compiler generated functions you do not want
     //copy constructor is private
-    Cinema b1(m1);
-    b1.getListOfMovies();
+    //Cinema b1(m1);
+    //b1.getListOfMovies();
     //Cinema b2=b1;
     //assigment operator is private
-    Cinema b3;
+    //Cinema b3;
     //b3=b1;
-*/
 
+
+/*
 
 int input;
 Cinema c1;
@@ -98,6 +113,7 @@ while(1)
                 cout<<"Enter a number between 1-6";
         }
     }
+*/
 
 return 0;
 }

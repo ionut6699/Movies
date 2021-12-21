@@ -3,33 +3,17 @@ using namespace std;
 
 //copy constructor
 Movie::Movie(const Movie& m){
-    std::cout<<"Copy Constructor\n";
     name=m.name;
     producer=m.producer;
     numberOfMinutes=m.numberOfMinutes;
 }
-
-// Item 10: Have assignment operators return a reference to *this.
-// Item 11: Handle assignment to self in operator=.
-// Item 12: Copy all parts of an object.
-
-
 //assigment operator
-Movie &Movie::operator=(const Movie &m) 
+Movie Movie::operator=(Movie m) 
 {
-    std::cout<<"Assignment operator \n";
-
-    if(this == &m) // item 11
-    {
-        std::cout << "SELF-ASIGNMENT!!" << std::endl;
-        return *this;
-    }
-
-    //item 12, copy all
-    name=m.name;
-    producer=m.producer;
-    numberOfMinutes=m.numberOfMinutes;
-    return *this;  // item 10
+    name=m.getName();
+    producer=m.getProducer();
+    numberOfMinutes=m.getNumberOfMinutes();
+    return *this;
 }
 
 
