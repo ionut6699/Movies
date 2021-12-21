@@ -1,30 +1,61 @@
 #include "../headers/Cinema.hpp"
 #include "../headers/Movie.hpp"
-
+#include <iostream>
+#include <memory>
 //Item 4: Make sure that objects are initialized before they’re used.
 //Item 5: Know what functions C++ silently writes and calls.
 //Item 6: Explicitly disallow the use of compiler generated functions you do not want
 
+
+Movie* createMovieInstance(){
+    return (new Movie);
+}
+
+void lock(Movie &m){
+    cout<<"Locking Movie"<<endl;
+    m.setIsLocked(true);
+}
+
+void unlock(Movie &m){
+    cout<<"Unlocking Movie"<<endl;
+    m.setIsLocked(false);
+}
+
+class LockMovie{
+    private:
+        Movie &lockPtr;
+    
+    public:
+        LockMovie(Movie &ptr):
+        lockPtr(ptr){
+            lock(lockPtr);
+        }
+
+        ~LockMovie(){
+            unlock(lockPtr);
+        }
+};
+
 int main()
 {   
     
-    Movie m1("Avatar","James Cameron",120);
-    Movie m2("Fast and Furious 9","Justin Lin",100);
-    Movie m3("Conjuring","James Wan",104);
+    // Movie m1("Avatar","James Cameron",120);
+    // Movie m2("Fast and Furious 9","Justin Lin",100);
+    // Movie m3("Conjuring","James Wan",104);
     
-    Movie m11;
+    // Movie m11;
 
-    m11=m2;
-    m11.displayInfo();
+    // m11=m2;
+    // m11.displayInfo();
 
 
-    Movie m12=m1;
+    // Movie m12=m1;
 
-    m3=m3;
+    // m3=m3;
 
-    Movie m13;
-    m13=m1;
-    m13.displayInfo();
+    // Movie m13;
+    // m13=m1;
+    // m13.displayInfo();
 
     //Item 5: Know what functions C++ silently writes and calls.
     //copy constructor
@@ -114,6 +145,69 @@ while(1)
         }
     }
 */
+
+std::cout<<"   auto_ptr    Item 13        " << std::endl;
+
+{
+     auto_ptr<Movie> m50(createMovieInstance());
+     m50->displayInfo();
+     auto_ptr<Movie> m51(m50);
+     m51->displayInfo();
+    //m50->displayInfo();
+}
+
+std::cout<<"__________________________________________________________________________________________________" << std::endl;
+
+
+std::cout<<"   unique_ptr    Item 13        " << std::endl;
+{
+    unique_ptr<Movie> movie_unique(createMovieInstance());
+    movie_unique->displayInfo();
+    //unique_ptr<Movie> movie_unique2(movie_unique);               // ii unique_ptr => nu putem copia
+    unique_ptr<Movie> movie_unique2 = move(movie_unique);         // transfer ownership
+    movie_unique2->displayInfo();
+}
+
+std::cout<<"__________________________________________________________________________________________________" << std::endl;
+
+std::cout<<"   shared_ptr    Item 13        " << std::endl;
+
+{
+     shared_ptr<Movie> movie_shared(createMovieInstance());
+     movie_shared->displayInfo();
+     std::cout<<"Number of pointers to move_shared = "<< movie_shared.use_count()<<std::endl;
+     shared_ptr<Movie> movie_shared2(movie_shared);
+     std::cout<<"Number of pointers to move_shared = "<< movie_shared.use_count()<<std::endl;
+     movie_shared2->displayInfo();
+     movie_shared2->setName("Venom");
+     movie_shared->displayInfo();
+
+
+    shared_ptr<Movie> movie_shared3 = move(movie_shared);
+    std::cout<<"Number of pointers to move_shared = "<< movie_shared.use_count()<<std::endl;
+    std::cout<<"Number of pointers to move_shared = "<< movie_shared3.use_count()<<std::endl;
+    movie_shared3->setName("Flash");
+    movie_shared3->displayInfo();
+    movie_shared2->displayInfo();
+
+
+
+    //m50->displayInfo();
+}
+
+std::cout<<"__________________________________________________________________________________________________" << std::endl;
+
+
+Movie m1("Avatar","James Cameron",120);
+LockMovie *lockMovie = new LockMovie(m1);
+Movie m2;
+m2 = m1;
+m2.displayInfo();
+m1.displayInfo();
+m1.checkAvailability();
+delete lockMovie;
+m1.checkAvailability();
+
 
 return 0;
 }

@@ -36,7 +36,7 @@ Movie &Movie::operator=(const Movie &m)
 //default constructor
 //Item 4: Make sure that objects are initialized before they’re used.
 Movie::Movie() :
-    name(""),
+    name("None"),
     producer(""),
     numberOfMinutes(0)
 {
@@ -51,6 +51,11 @@ Movie::Movie(string name, string producer, int numberOfMinutes) :
 {
     numberOfMovies++;
 };
+
+Movie::~Movie(){
+    std::cout<<"DESTRUCTOR\n";
+}
+
 
 
 int Movie::numberOfMovies = 0;
@@ -77,4 +82,15 @@ void Movie::setName(string name) {
 }
 void Movie::setNumberOfMinutes(int numberOfMinutes){
     this->numberOfMinutes = numberOfMinutes;
+}
+
+void Movie::setIsLocked(bool isLocked){
+    this->isLocked = isLocked;
+}
+
+void Movie::checkAvailability(){
+    if(this->isLocked == true)
+        cout << "is Locked"<<endl;
+    else    
+        cout << "is Available"<<endl;
 }

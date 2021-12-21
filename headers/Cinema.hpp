@@ -4,6 +4,7 @@
 #include "Movie.hpp"
 #include <iostream>
 #include <vector>
+#include <memory>
 using namespace std;
 
 class Cinema
