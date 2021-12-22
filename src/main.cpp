@@ -200,9 +200,6 @@ std::cout<<"____________________________________________________________________
 
 Movie m1("Avatar","James Cameron",120);
 LockMovie *lockMovie = new LockMovie(m1);
-Movie m2;
-m2 = m1;
-m2.displayInfo();
 m1.displayInfo();
 m1.checkAvailability();
 delete lockMovie;
